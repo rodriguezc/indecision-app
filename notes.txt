@@ -1,0 +1,107 @@
+https://www.udemy.com/react-2nd-edition/learn/v4/t/lecture/7707632?start=0
+
+###Evaluation REACT###
+
+3 raisons d'apprendre react:
+-learning curve: rapide
+-community:  Une des meilleurs. Stack overflow Beaucoup de librairies. Facebook,  neflix, uber -> investissent dans cette techno
+-speed of react: Orienté composant. On casse une grosse applications en petit composants. 
+
+
+Visual studio:
+
+Node: Javascript on the server
+Plugin : emmet
+
+prérequis:
+nodejs
+yarn (npm install -g yarn)
+
+Exercice 1:
+http://indecision.mead.io/
+https://github.com/andrewjmead/react-course-2-indecision-app
+
+
+mkdir indecision-app
+cd indecision-app
+mkdkir public
+cd public
+touch index.html
+
+liveserver:  yarn global add live-server
+live-server public
+
+
+  <script src="https://unpkg.com/react@15/dist/react.js"></script> <!-- Moteur de react -->
+  <script src="https://unpkg.com/react-dom@15/dist/react.js"></script> <!-- React avec le browser--> 
+
+
+
+  Dans la console Chrome on peut lancer des commandes:
+  React & ReactRom --> savoir si react existe
+  
+  // JSX = JavaScript XML -> Fournit p
+  ar react --> Beaucoup plus facile de faire des templates - fantastique 
+
+
+Pour que JSX fonctionne: Il faut le compiler -->
+Avoir babbel
+
+
+var template = <p>This is JSX from app.js! </p>; 						   --> Le browser comprend pas
+var template = React.createElement("p", null, "This is JSX from app.js! ") --> Le browser comprend
+
+Exemple hyper basique:
+var template = React.createElement("p", null, "This is JSX from app.js! ");
+var appRoot = document.getElementById("app");
+
+ReactDOM.render(template, appRoot);
+
+
+Setting up babbel:
+http://babeljs.io/docs/plugins/preset-react/
+
+-->
+Lance les commandes:
+yarn global add babel-cli@6.24.1
+babel --help
+Installer les presets babel:
+yarn init 
+--> Crée un fichier package.json
+yarn add babel-preset-react@6.24.1
+yarn add babel-preset-env@1.5.2
+
+yarn.lock --> Permet d'avoir exactement les mêmes dépendances dans toutes les machines, environnements, etc.
+
+Compiler avec babel:
+babel src/app.js  --presets=env,react --out-file=public/scripts/app.js
+
+-->Compile dès que le fichier source change
+babel src/app.js  --presets=env,react --out-file=public/scripts/app.js --watch
+--> On utilise en même temps live-server public
+
+
+nodes_modules : ne doit pas être commité.  Le fichier .lock doit être par contre commité pour être sûr des versions
+Si on supprime node_modules il faut refaire la commande: yarn install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
