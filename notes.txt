@@ -85,8 +85,32 @@ nodes_modules : ne doit pas être commité.  Le fichier .lock doit être par con
 Si on supprime node_modules il faut refaire la commande: yarn install
 
 
+#Plugins recommandés: 
+Babel ES6 ES7
+Beautify css/sass/
+Duplicate action
+ESLint
+GIt history (git log)
+Path intellisense
+Sass Lint
+SCSS IntelliSense
+Sublime Text Keymap
 
 
+JSX: Il doit y avoir forcément un élément ROOT
+var template = (
+  <div>
+    <h1>Indecision App</h1>
+    <p>This is some info</p>
+  </div>
+);
+Plus lisible que
+var template = 
+  <div>
+    <h1>Indecision App</h1>
+    <p>This is some info</p>
+  </div>
+;
 
 
 
