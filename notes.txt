@@ -111,11 +111,20 @@ var template =
     <p>This is some info</p>
   </div>
 ;
+    <h1>{user.name}</h1> --> OK
+	    <h1>{user}</h1> --> KO : React ne veut pas d un objet . Voir console
+
+
+Conditional rendering:
 
 
 
 
 
+
+
+<h1>{}</h1> {} --> {} Any javascript expression    
+<h1>{userName.toUpperCase()}</h1>
 
 
 
