@@ -173,16 +173,175 @@ true ? 'Andrew' : 'Anonymous'
 false / true / null ne sont pas affichés par JSX
 
 	
+
+	Logical and operator:
+	true && 'Some Age' --> retourne 'Some age'
+	false && 'Some age' --> Retourne 'false'
 	
+{user.age >= 18 &&  <p>Age: {user.age}</p>}
+
+{user.age && user.age >= 18 && <p>Age: {user.age}</p>}
+
+
+####################################
+ES6:
+Problèmes du var:
+var nameVar = "Andrew";
+var nameVar = "Mike";
+On peut le déclarer plusieurs fois en plus de réaissigner sa valeur
+
+A l'intérieur d'une fonction, var est visible au niveau de la fonction.
+
+Autre exemple tordu:
+var fullName = "Andrew Mead";
+
+if (fullName) {
+  var firstName = fullName.split(" ")[0];
+}
+
+console.log(firstName); --> Firstname est accessible
+Il est donc function scoped. Let et const sont block scoped
+
+
+let:
+let nameLet = "Jen";
+let nameLet = "toto";
+-->
+ Duplicate declaration "nameLet" déclenché par le compilateur
+ 
+
+const:
+const nameConst = "Franck";
+const nameConst = "Gunther";
+On ne peut pas redéclarer
+-->
+ Duplicate declaration
+Ni réassigner la valeur (= final)
+
+
+--> NE PLUS UTILISER VAR mais utiliser CONST ET LET
+
+
+####################################
+
+arrow function =  lambdas
+
+On ne peut pas leur donner un nom, elles sont anonymes et associées à une variable
+
+const squareArrow = x => {
+  return x * x;
+};
+En plus concis:
+const squareArrow = (x) => x*x;
+
+
+
+Différences arrow functions et es5 functions:
+Dans arrow function: il n'y a plus the "arguments" object donc:
+const add = function(a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+console.log(add(55, 1, 3));
+
+Maintenant:
+const add = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+--> CA PLANTE : arguments undefined
+
+
+Pareil avec les fonctions:
+ES5:
+
+const user = {
+  name: "Andrew",
+  cities: ["Geneva", "Lausanne", "Dublin"],
+  printPlacesLived: function() {
+    console.log(this.name);
+    console.log(this.cities);
+  }
+};
+user.printPlacesLived();
+//this est bien relatif à l'objet contenant la fonction.
+
+const user = {
+  name: "Andrew",
+  cities: ["Geneva", "Lausanne", "Dublin"],
+  printPlacesLived: function() {
+    console.log(this.name);
+    console.log(this.cities);
+
+    this.cities.forEach(function(city) {
+      console.log(this.name + " has lived in " + city);
+    });
+  }
+};
+
+--> this.name dans le foreach ne marche plus car il n'est plus bindé par rapport à user.
+
+Différence avec lambda: lambda ne fait pas de  binding, il reprend juste le this disponible dans le contexte où il se trouve
+
+const user = {
+  name: "Andrew",
+  cities: ["Geneva", "Lausanne", "Dublin"],
+  printPlacesLived: function() {
+    console.log(this.name);
+    console.log(this.cities);
+
+    this.cities.forEach(city => {
+      console.log(this.name + " has lived in " + city);
+    });
+  }
+};
+l'arrow function utilise le this dipsonible qui est celui de user. donc ca marche.
+
+Par contre l'exemple suivant ne marche plus:
+const user = {
+  name: "Andrew",
+  cities: ["Geneva", "Lausanne", "Dublin"],
+  printPlacesLived: ()=> {
+    console.log(this.name);
+    console.log(this.cities);
+
+    this.cities.forEach(city => {
+      console.log(this.name + " has lived in " + city);
+    });
+  }
+};
+user.printPlacesLived();
+
+DONC "this" est un objet qui se crée uniquement avec la déclaration d'une fonction ES5
+
+Façon plus élégante d'écrire une ES5 function sans devoir déclarer "= function" (qui a donc les mêmes paramètres:
+  cities: ["Geneva", "Lausanne", "Dublin"],
+  printPlacesLived() {
+    this.cities.forEach(city => {
+      console.log(this.name + " has lived in " + city);
+    });
+  }
+};
+
+##################################
+Utilisation du forEach VS map
+ this.cities.forEach(city => {
+      console.log(this.name + " has lived in " + city);
+    });
+
+
+const cityMessages = this.cities.map(city => {
+  return this.name + " has lived in " + city;
+});
+
+avec le map on peut appliquer une transformation à l'objet et obtenir une nouvelle liste.	
+C'est vraiment beaucoup utilisé ces transformations
+
+Encore plus concis:
+return this.cities.map(city => this.name + " has lived in " + city);
 
 
 
 
 
-
-
-
-
-
-  
-  
