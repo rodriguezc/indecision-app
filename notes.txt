@@ -341,7 +341,24 @@ C'est vraiment beaucoup utilisé ces transformations
 Encore plus concis:
 return this.cities.map(city => this.name + " has lived in " + city);
 
+##################################
+Events and attributes
+en JSX un attribut class doit être renommé en "className"
 
+const templateTwo = (
+  <div>
+    <h1>Count: {count}</h1>
+    <button className="button" id="my-id">
+      +1
+    </button>
+  </div>
+);
+quand on fait un console.log d un jsx, on peut ensuite regarder son contenu. Voir les "props" est très intéressant puisqu'on y retrouve les children de l'élément root, en l'occurence du div.
+Voir:
+https://facebook.github.io/react/docs/dom-elements.html
+Les attributs identiques sont par contre devenus "camelCase"
+Certains mots sont réservés en javascript, d'ou le changement class en className
 
-
+const someId = "myidhere";
+<button id={someId}
 
