@@ -19,20 +19,27 @@ var template = (
 var user = {
   name: "Andrew",
   age: 26,
-  Location: "Philadelphia"
+  location: "New York"
 };
 var userName = "Andrew";
 var userAge = 27;
 var userLocation = "Philadelphia";
 
+function getLocation(location) {
+  if (location) {
+    return <p>Location: {location}</p>;
+  }
+  return undefined;
+}
+
 var templateTwo = (
   <div>
     <h1>{user.name}</h1>
     <p>Age: {user.age}</p>
-    <p>Location: {user.Location}</p>
+    {getLocation(user.location)}
   </div>
 );
 
 var appRoot = document.getElementById("app");
 //ReactDOM.render(template, appRoot);
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

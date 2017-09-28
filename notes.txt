@@ -117,6 +117,10 @@ var template =
 
 Conditional rendering:
 
+if statement
+ternary operators
+logical and operator
+
 
 
 
@@ -127,6 +131,20 @@ Conditional rendering:
 <h1>{userName.toUpperCase()}</h1>
 
 
+
+function getLocation() {
+  return "Unknown";
+}
+<p>Location: {getLocation()}</p>
+
+
+<p>Location: {getLocation(user.Location)}</p>
+function getLocation(location) {
+  if (location) {
+    return location;
+  }
+  return "Unknown";
+}
 
 
 
