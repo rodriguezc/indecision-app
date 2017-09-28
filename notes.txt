@@ -146,6 +146,36 @@ function getLocation(location) {
   return "Unknown";
 }
 
+Cacher tout un élément:
+
+    {<h3>My h3</h3>}
+
+function getLocation(location) {
+  if (location) {
+    return <p>Location: {location}</p>;
+  }
+  return undefined; //React sait qu il ne doit rien afficher dans ce cas. Facultatif de retourner undefined
+}
+
+var templateTwo = (
+  <div>
+    <h1>{user.name}</h1>
+    <p>Age: {user.age}</p>
+    {getLocation(user.location)} == Aero function
+  </div>
+);	
+	
+
+Termary operator (more concise): 
+true ? 'Andrew' : 'Anonymous'
+
+
+false / true / null ne sont pas affichés par JSX
+
+	
+	
+
+
 
 
 
