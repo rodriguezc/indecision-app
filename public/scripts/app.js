@@ -26,6 +26,8 @@ var onRemoveAll = function onRemoveAll() {
 
 var appRoot = document.getElementById("app");
 
+var numbers = [55, 101, 1000];
+
 var render = function render() {
   var template = React.createElement(
     "div",
@@ -51,18 +53,20 @@ var render = function render() {
       app.options.length
     ),
     React.createElement(
+      "button",
+      { type: "button", onClick: onRemoveAll },
+      "Remove all"
+    ),
+    React.createElement(
       "ol",
       null,
-      React.createElement(
-        "li",
-        null,
-        "Item one"
-      ),
-      React.createElement(
-        "li",
-        null,
-        "Item two"
-      )
+      app.options.map(function (option) {
+        return React.createElement(
+          "li",
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       "form",
@@ -72,11 +76,6 @@ var render = function render() {
         "button",
         { type: "submit" },
         "Add option"
-      ),
-      React.createElement(
-        "button",
-        { type: "button", onClick: onRemoveAll },
-        "Remove all"
       )
     )
   );

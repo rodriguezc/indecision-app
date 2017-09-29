@@ -451,3 +451,47 @@ const onFormSubmit = e => {
       <button type="submit">Add option</button>
     </form>
 
+
+################################################################
+Arrays:
+
+	
+<p>
+{[99, 98, 97, "Mike smith", null, undefined, true]}
+</p>
+
+--> null, undefined et true ne sont pas affichés, seulement:
+999897Mike smith
+
+{[<p>a</p>, <p>b</p>, <p>c</p>]}
+	--> WARNING: Il faut une key sinonreact n'arrive pas à indexer
+{[<p key="1">a</p>, <p key="2">b</p>, <p key="3">c</p>]}
+	
+Iteration:
+<p>
+ {numbers.map(number => {
+        return <p key={number}>Number : {number}</p>;
+      })}
+</p>
+
+
+ <ol>
+        {app.options.map(option => {
+          return <li key={option}>{option}</li>;
+        })}
+      </ol>	
+	
+Version plus concise:
+      <ol>{app.options.map(option => <li key={option}>{option}</li>)}</ol>
+	
+
+################################################################
+Picking an option:
+
+
+
+
+	
+	
+	
+	
