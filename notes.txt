@@ -502,6 +502,87 @@ const renderApp = () => {
 Attention: Faut bien mettre le template dans renderApp!!! Si on mets template en dehors il n'est pas recalculé
 
 
+################################################################
+### React components!
+################################################################
+On crée autant de composant qu'on veut pour factoriser notre JSX, qu'on a besoin sur plusieurs pages ou sur la même page
+Exemple de composants
+<Header />
+<ProfileWidget />
+<Trends />
+<Trend />
+<Tweet />
+<DashboardPage /> Contenant tous les autres ci-dessus
+
+Autre exemple:
+<IndecisionApp />
+<Header />
+<Action />
+<Options />
+<Option />
+<AddOption/>
+
+########Création de classes############
+class Person {
+  constructor(name) {
+    console.log(name);
+  }
+}
+
+const me = new Person("Christophe Rodriguez");
+
+class Person {
+  constructor(name) {
+    this.name = name || "test";
+  }
+}
+const other = new Person();
+console.log(other);
+--> L'instance Person a comme nom "test"
+
+
+class Person {
+  constructor(name = "Anonymous") {
+    this.name = name;
+  }
+}
+--> Valeur par défaut
+
+
+Déclarer une méthode:
+class Person {
+  constructor(name = "Anonymous") {
+    this.name = name;
+  }
+
+  getGreeting() {
+    return "Hi";
+  }
+}
+
+Backticks ES6:   `` 
+class Person {
+  constructor(name = "Anonymous") {
+    this.name = name;
+  }
+
+  getGreeting() {
+    // return "Hi. I am  " + this.name + "!";
+    return `Hi. I am ${this.name}!`;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 	
