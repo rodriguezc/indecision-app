@@ -3,20 +3,50 @@ console.log("App.js is running");
 const app = {
   title: "Indecision App",
   subtitle: "Put your life in the hands of a computer",
-  options: ["One", "Two"]
+  options: []
 };
 
-const template = (
-  <div>
-    <h1>{app.title}</h1>
-    {app.subtitle && <p>{app.subtitle}</p>}
-    <p>{app.options.length > 0 ? "Here are your options" : "No options"}</p>
-    <ol>
-      <li>Item one</li>
-      <li>Item two</li>
-    </ol>
-  </div>
-);
+const onFormSubmit = e => {
+  e.preventDefault();
+  const option = e.target.elements.option.value;
+  if (option) {
+    console.log(option);
+    app.options.push(option);
+    e.target.elements.option.value = "";
+    render();
+  }
+};
+
+const onRemoveAll = () => {
+  app.options = [];
+  render();
+};
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(template, appRoot);
+
+const render = () => {
+  const template = (
+    <div>
+      <h1>{app.title}</h1>
+      {app.subtitle && <p>{app.subtitle}</p>}
+      <p>{app.options.length > 0 ? "Here are your options" : "No options"}</p>
+      <p>{app.options.length}</p>
+
+      <ol>
+        <li>Item one</li>
+        <li>Item two</li>
+      </ol>
+
+      <form onSubmit={onFormSubmit}>
+        <input type="text" name="option" />
+        <button type="submit">Add option</button>
+        <button type="button" onClick={onRemoveAll}>
+          Remove all
+        </button>
+      </form>
+    </div>
+  );
+
+  ReactDOM.render(template, appRoot);
+};
+render();
