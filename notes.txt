@@ -486,8 +486,20 @@ Version plus concise:
 	
 
 ################################################################
-Picking an option:
+Visibility toggle
 
+const renderApp = () => {
+  const template = (
+    <div>
+      <h1>Visible toggle</h1>
+      <button onClick={onToggleDetails}>Show details</button>
+      {toggleDetails && <div>Some details</div>}
+    </div>
+  );
+  console.log(ReactDOM.render(template, appRoot));
+};
+
+Attention: Faut bien mettre le template dans renderApp!!! Si on mets template en dehors il n'est pas recalculé
 
 
 
