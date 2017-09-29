@@ -572,7 +572,24 @@ class Person {
   }
 }
 
+Extension de classe:
+class Student extends Person {
+  constructor(name, age, major) {
+    super(name, age);
+    this.major = major;
+  }
+}
 
+
+Flip flap:
+!'' -> retourne false
+!!'salut' -> retourne true
+!'salut'-> reetourne false
+
+!!'' -> retourne false
+!''-> reetourne true
+
+!!this.name Permet d'avoir toujours true ou false. meme si this.name est undefined
 
 
 
