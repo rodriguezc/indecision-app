@@ -362,3 +362,74 @@ Certains mots sont réservés en javascript, d'ou le changement class en classNa
 const someId = "myidhere";
 <button id={someId}
 
+!! 
+    <button onClick={(addOne)=>{}}>+1</button>
+
+	Attention: éviter de déclarer la fonction anonymement mais la mettre dehors:
+	const addOne = () => {
+		  console.log("addOne");
+		};
+	    <button onClick={addOne}>+1</button>
+
+
+##################################
+Manual data binding
+
+JSX n'a pas de "data binding". Changer une variable de valeur ne mets pas à jour le dom.
+Pourquoi?
+->
+
+const addOne = () => {
+  count++;
+};
+
+const templateTwo = (
+  <div>
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+  </div>
+);
+
+console.log(templateTwo);
+
+const appRoot = document.getElementById("app");
+//ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
+
+
+//lors du addOne il n'y a pas de nouvel appel à la fonction "render"
+//Pour résoudre:
+
+const addOne = () => {
+  count++;
+  console.log("addOne", count);
+  renderCounterApp();
+};
+
+
+const appRoot = document.getElementById("app");
+
+const renderCounterApp = () => {
+  const templateTwo = (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={addOne}>+1</button>
+      <button onClick={minusOne}>-1</button>
+      <button onClick={reset}>reset</button>
+    </div>
+  );
+  ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
+
+Dans chrome: 
+Quand on regarde le dom, ce qui "flash" est ce qui est re-rendu.
+On peut penser que l'exempkle ci-dessus est coûteux, mais non:
+Virtual Dom algorithms: permet de changer le minimum d'élément. Meme si on render tout. Le JSX est un objet, donc un algo est applicable.
+
+
+
+
+
+
