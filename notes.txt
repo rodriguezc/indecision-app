@@ -809,7 +809,9 @@ react va "batcher" ces changements d'état pour avoir à faire le moins de chang
 
 
 
-###
+Comment un child peut manipuler le state d'un parent:
+Il faut que le parent exposer une méthode, et qu'on la file a l'enfant
+
 
 
 
