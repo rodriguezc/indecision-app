@@ -813,9 +813,24 @@ Comment un child peut manipuler le state d'un parent:
 Il faut que le parent exposer une méthode, et qu'on la file a l'enfant
 
 
+prevState.options.push(option); //PAS BIEN 
+//A LA PLACE UTILISER:
+  this.setState((prevState)=>{
+        return {
+            options: prevState.options.concat(option) 
+        };
+    })
 
 
-
+Tip ES6:
+ return {
+        error: error
+      };
+	  
+Est égal à 
+return {
+error
+};  
 
 
 
