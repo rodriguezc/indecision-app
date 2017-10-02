@@ -757,7 +757,27 @@ class Options extends React.Component {
 ####Component state####
 state: c'est un object avec des clés-valeurs, ayant une valeur par défaut et Lorsqu'un state change, le composant est de nouveau renderé par react si on modifie son state.
 
+Mettre un state default:
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state =  {
+        count : 0,
+		name : "Julie"
+    };
+}
+Utilisation:
+<h1>Count: {this.state.count}</h1>
 
+Changer l'état:
+ this.setState(previousState => {
+      return {
+        count: previousState.count + 1
+      };
+    });
+	
+Le nouvel état doit contenir que les clés qui ont changées
+	
 
 
 
