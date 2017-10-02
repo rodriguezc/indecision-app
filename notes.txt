@@ -779,6 +779,35 @@ Changer l'état:
 Le nouvel état doit contenir que les clés qui ont changées
 	
 
+Autre syntaxe:
+On peut passer un objet directement. C'est l'ancienne approche. Mais c'est pas recommandé. Normalement ça devrait disparaître d'ici les prochaines versions react.
+Exemple très dangereux:
+ this.setState(() => {
+      return {
+        count: 0
+      };
+    });
+
+    this.setState({
+      count: this.state.count + 1
+    });
+--> !!!!! Le premier changement d'état n'a pas encore été pris en compte. IL EST ASYNCHRONE!!! Le deuxième changement d'état se base donc sur une autre valeur que 0.
+Ca ca marche par contre:
+this.setState(() => {
+      return {
+        count: 0
+      };
+    });
+
+    this.setState(previousState => {
+      return {
+        count: previousState.count + 1
+      };
+    });	
+
+react va "batcher" ces changements d'état pour avoir à faire le moins de changements possibles
+
+
 
 
 
