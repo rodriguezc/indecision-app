@@ -688,4 +688,76 @@ class Options extends React.Component {
 
 
 ######EVENT HANDLERS###############################################
+class AddOption extends React.Component {
+  handleAddOption(e) {
+    e.preventDefault();
+    const option = e.target.elements.option.value.trim();
+    if (option) {
+      alert("Value tiped");
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleAddOption}>
+          <input type="text" name="option" />
+          <button type="submit">Add option</button>
+        </form>
+      </div>
+    );
+  }
+}
+#####METHOD BINDING###############################################
+const obj = {
+  name: "Vikram",
+  getName() {
+    return this.name;
+  }
+};
+const getName = obj.getName;
+console.log(getName());
+
+--> NOT WORKING: CAR:
+Le contexte n'est pas le même. On le perd. Le contexte n'est pas trasnsféré.
+Quand on crée une constante pour la méthode on perd la fonction.
+Solution:
+const getName = obj.getName.bind(obj);
+OU:
+const getName = obj.getName.bind({ name: "Andrew" });
+
+Exmemple d'utilisation en JSX:        
+<button onClick={this.handleRemoveAll.bind(this)}>Remove all</button>
+
+Autre solution: mettre le bind dans le constructeur:
+
+class Options extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+    this.handleRemoveAll = this.handleRemoveAll.bind(this);
+  }
+
+  handleRemoveAll() {
+    //alert("handleRemoveAll");
+    console.log(this.props.options);
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleRemoveAll}>Remove all</button>
+        {this.props.options.map(option => (
+          <Option key={option} optionText={option} />
+        ))}
+      </div>
+    );
+  }
+}
+
+
+
+
+
+
+
 	
