@@ -754,6 +754,18 @@ class Options extends React.Component {
   }
 }
 
+####Component state####
+state: c'est un object avec des clés-valeurs, ayant une valeur par défaut et Lorsqu'un state change, le composant est de nouveau renderé par react si on modifie son state.
+
+
+
+
+
+
+
+
+
+
 
 
 
