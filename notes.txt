@@ -833,6 +833,14 @@ error
 };  
 
 
+############SCOPE VS PROPS###############
+Props                          			State
+an object				       			too
+Can be use when rendering      			too
+Changes from above cause-re-renders		Changes cause re-renders
+Comes from above						Defined in component itself
+Can't be change by component itself		Can be changed by component itself			
+
 
 
 
