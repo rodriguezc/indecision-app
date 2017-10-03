@@ -841,6 +841,39 @@ Changes from above cause-re-renders		Changes cause re-renders
 Comes from above						Defined in component itself
 Can't be change by component itself		Can be changed by component itself			
 
+###########STATELESS FUNCTIONAL COMPONENT##########
+-N'utilisent pas des états
+Si un composant est sans état pas besoin de faire une classe on peut le déclarer en fonction
+
+const User = () => {
+  return (
+    <div>
+      <p>Name: </p>
+      <p>Age: </p>
+    </div>
+  );
+};
+
+ReactDOM.render(<User />, document.getElementById("app"));
+
+const User = props => {
+  return (
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+};
+
+ReactDOM.render(
+  <User name="Andrew" age="21" />,
+  document.getElementById("app")
+);
+
+React peut donc recevoir soit une fonction soit une classe
+
+###########Default props values##########
+
 
 
 
