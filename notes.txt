@@ -874,7 +874,41 @@ React peut donc recevoir soit une fonction soit une classe
 
 ###########Default props values##########
 
+Sur les stateless components:
+const Header = props => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      {props.subtitle && <h2>{props.subtitle}</h2>}
+    </div>
+  );
+};
 
+Header.defaultProps = {
+  title: "Indecision"
+};
+
+
+Sur les classes:
+
+class IndecisionApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+    this.handlePick = this.handlePick.bind(this);
+    this.handleAddOption = this.handleAddOption.bind(this);
+
+    this.state = {
+      options: props.options
+    };
+  }
+ }
+ 
+ 
+IndecisionApp.defaultProps = {
+  options: ["Thing one", "Thing two", "Thing four"]
+};
+ 
 
 
 
