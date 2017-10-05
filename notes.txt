@@ -1036,13 +1036,33 @@ module.exports = {
 3. Mettre à jour le fichier .js:
 <script src="/bundle.js"></script>
 
+WEBPACK sait faire de l'ES6, ES7 by default
+depuis app.js:
+import "./utils.js";
+
+Webpack va merger les deux. Ils gardent par contre leur scope interne. Pour partager des fonctions:
+
+
+######ES6 imports and exports#######
+
+Pour exporter on a deux possibilités:
+default export:
+
+
+named export:
+
+Le fichier qui exporte:
+const square = x => x * x;
+const add = (a, b) => a + b;
+export { square, add };
+Ou
+export const square = x => x * x;
+export const add = (a, b) => a + b;
 
 
 
-
-
-
-
+Le fichier qui importe:
+import { square, add } from "./utils.js"; //OU simplement add. faut importer ce qu on utilise.
 
 
 
