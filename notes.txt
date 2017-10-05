@@ -910,6 +910,29 @@ IndecisionApp.defaultProps = {
 };
  
 
+ ############REACT DEV TOOLS####################
+ Plugin chrome.
+ Permet de voir le tree JSX: Donc le dom virtuel
+ !! On peut voir les props et les states de chaque composant
+ !! On peut changer la valeur des states
+ 
+ Lorsqu'on clique sur un composant on a la variable $r accessible dans la console pour ce composant
+
+
+ ############REMOVING INDIVDUAL OPTIONS####################
+const num = ()=> ({});  //ARROW FUNCTION QUI RETOURNE UN OBJET
+this.setState(() => ({ options: [] }));  //IDEM. Façon élégante et concise de retourner un objet
+
+
+//Filtering des tableaux:
+  handleDeleteOption(optionToRemove) {
+    this.setState(prevState => ({
+      options: prevState.options.filter(option => {
+        return option !== optionToRemove;
+      })
+    }));
+    console.log("hdo", optionToRemove);
+  }
 
 
 
