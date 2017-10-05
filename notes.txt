@@ -1047,6 +1047,18 @@ Webpack va merger les deux. Ils gardent par contre leur scope interne. Pour part
 
 Pour exporter on a deux possibilités:
 default export:
+Le fichier qui exporte:
+const subtract = (a, b) => a - b;
+export {subtract as default };
+Ou
+const subtract = (a, b) => a - b;
+export default subtract;
+
+
+Le fichier qui importe:
+import subtract, { square, add } from "./utils.js";
+
+On peut renommer sans problème "subtract" dans l'import. Le naming n'est pas important.
 
 
 named export:
@@ -1060,13 +1072,9 @@ export const square = x => x * x;
 export const add = (a, b) => a + b;
 
 
-
 Le fichier qui importe:
 import { square, add } from "./utils.js"; //OU simplement add. faut importer ce qu on utilise.
 
 
-
-
- 
- 
- 
+Règle pour définir si on exporte default ou named:
+Si c'est un gros truc on exporte en default 

@@ -72,20 +72,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person__ = __webpack_require__(2);
 //import "./utils.js";
 
-//import { square, add } from "./utils.js";
-
+//import subtract, { square, add } from "./utils.js";
 //console.log("app is running yes ");
-
 //console.log(square(4));
 //console.log(add(100, 23));
+//console.log(subtract(100, 81));
 
 
 
-console.log("17 years old is an andult: ", __WEBPACK_IMPORTED_MODULE_0__person__["b" /* isAdult */](17));
-console.log("18 years old is an adult: ", __WEBPACK_IMPORTED_MODULE_0__person__["b" /* isAdult */](18));
+console.log("17 years old is an andult: ", __WEBPACK_IMPORTED_MODULE_0__person__["c" /* isAdult */](17));
+console.log("18 years old is an adult: ", __WEBPACK_IMPORTED_MODULE_0__person__["c" /* isAdult */](18));
 
 console.log("20 years old is an andult: ", __WEBPACK_IMPORTED_MODULE_0__person__["a" /* canDrink */](20));
 console.log("21 years old is an andult: ", __WEBPACK_IMPORTED_MODULE_0__person__["a" /* canDrink */](21));
+
+console.log("6 years old is senior", __WEBPACK_IMPORTED_MODULE_0__person__["b" /* default */](64));
+console.log("65 years old is senior", __WEBPACK_IMPORTED_MODULE_0__person__["b" /* default */](65));
 
 
 /***/ }),
@@ -95,11 +97,14 @@ console.log("21 years old is an andult: ", __WEBPACK_IMPORTED_MODULE_0__person__
 
 "use strict";
 const isAdult = age => age >= 18;
-/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
+/* harmony export (immutable) */ __webpack_exports__["c"] = isAdult;
 
 const canDrink = age => age >= 21;
 /* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
 
+
+//Is  senior
+/* harmony default export */ __webpack_exports__["b"] = (age => age >= 65);
 
 
 /***/ })
