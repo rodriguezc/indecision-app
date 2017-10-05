@@ -947,7 +947,7 @@ il faut une classe pour:
   }
 
     componentDidUpdate() {
-    --> Appelé lors d'un changement d'état ou de props
+    --> Appelé lors d'un changement d'état ou de props. Même s'il  n'y a pas de changement d'état
   }
 
  
@@ -964,5 +964,14 @@ depuis la console chrome taper:
 ReactDOM.render(React.createElement('p'), document.getElementById('app'));
 ==> Cela efface le contenu actuel et appelle donc le unmount
 
+ ############Local storage####################
+ Stockage de clé/valeur STRING uniquement:
+ localStorage.setItem('name', 'Andrew');
+ localStorage.getItem('name');
+ localStorage.removeItem('name');
+ localStorage.clear();
+ 
+ 
+ 
 
 	
