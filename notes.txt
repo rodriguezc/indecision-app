@@ -971,3 +971,82 @@ ReactDOM.render(React.createElement('p'), document.getElementById('app'));
  localStorage.removeItem('name');
  localStorage.clear();
  
+ 
+ ############Webpack####################
+ -Asset bundler
+ -Va permetttre d'avoir plein de petits fichiers javascript et de les réduire lors du packaging
+ -Organiser le javascript
+ -Le bundle contiendra tout ce que l'application a besoin pour tourner.
+ -Fonctionne avec les imports / exports. (vs gulp, grunt)
+ -D'intégrer les modules NPM, de les upgrader
+
+ 
+ Avant webpack:
+ public/index.html Ce fichier HTML doit charger dans l'ordre:
+ public/util.js
+ public/react.js
+ public/react-dom.js
+ public/app.js
+ 
+ Après webpack:
+ public ---> pour servir nos assets comme le html
+ src/ --> nos sources
+ nodes_modules  --> les thirds parties
+ 
+ nos sources vont avoir des dépendances qui sont définies dans le JS. Exemple app.js va dépendre de react, de react-dom.js, etc.
+ 
+ Puis webpack va créer un fichier "bundle.js" avec tout le contenu qu'il va mettre dans "public"
+ 
+NPM: AVOID GLOBAL MODULES!!!
+Il est déconsillé d'installer des global modules. Par exemple installer live-server, ou babel globally.
+C'est conseillé d'avoir toutes les dépendances dans le package.json:
+yarn global remove babel-cli live-server
+
+A la place: 
+1. ajouter dans package.json la dépendance:
+yarn add live-server babel-cli@6.24.1
+2. Editer le fichier package.json et ajouter:
+  "scripts": {
+    "serve": "live-server public/"
+  },
+3. Runner le script  
+yarn run serve -- --port=9000    
+
+
+
+#########Installation de webpack:#############
+1. 
+yarn add webpack@3.1.0
+"scripts": {
+	"build": "webpack --watch",
+},
+
+2. Créer un fichier de conf
+/webpack.config.js
+
+const path = require("path");
+module.exports = {
+  entry: "./src/app.js", // where webpack looks to start building the bundle
+  output: {  //Ou stocker la compilation
+    path: path.join(__dirname, "public"),
+    filename: "bundle.js"
+  }
+};
+
+3. Mettre à jour le fichier .js:
+<script src="/bundle.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
