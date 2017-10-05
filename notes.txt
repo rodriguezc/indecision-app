@@ -934,7 +934,35 @@ this.setState(() => ({ options: [] }));  //IDEM. Façon élégante et concise de
     console.log("hdo", optionToRemove);
   }
 
+ ############Lifecycle methods####################
+ https://reactjs.org/docs/react-component.html
+ 
+ 
+ 
+Ne sont pas disponibles avec les stateless components
+On ne peut pas donc populer par exemple des données avec la DB
+il faut une classe pour:
+  componentDidMount() {
+    console.log("Component did mount!");
+  }
 
+    componentDidUpdate() {
+    --> Appelé lors d'un changement d'état ou de props
+  }
+
+ 
+//On peut imaginer sauver les données à ce moment là? 
+componentDidUpdate(prevProps, prevState) {
+console.log("ICI");
+}
+
+componentWillUnmount(){
+ //Lorsqu'il est enlevé   
+}
+Pour tester :
+depuis la console chrome taper:
+ReactDOM.render(React.createElement('p'), document.getElementById('app'));
+==> Cela efface le contenu actuel et appelle donc le unmount
 
 
 	
