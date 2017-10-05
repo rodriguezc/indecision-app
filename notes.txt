@@ -971,7 +971,3 @@ ReactDOM.render(React.createElement('p'), document.getElementById('app'));
  localStorage.removeItem('name');
  localStorage.clear();
  
- 
- 
-
-	
