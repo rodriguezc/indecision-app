@@ -1053,6 +1053,9 @@ export {subtract as default };
 Ou
 const subtract = (a, b) => a - b;
 export default subtract;
+Ou
+export default  (a, b) => a - b;;
+
 
 
 Le fichier qui importe:
@@ -1078,3 +1081,37 @@ import { square, add } from "./utils.js"; //OU simplement add. faut importer ce 
 
 Règle pour définir si on exporte default ou named:
 Si c'est un gros truc on exporte en default 
+
+
+################UTILISATION DE NPM####################
+1. Install
+exemple:
+yarn add validator
+
+Pour react:
+yarn add react react-dom
+OU EN FIGEANT LA VERSION:
+yarn add react@16.0.0 react-dom@16.0.0
+
+
+2. Import
+import validator from 'validator' --> WEBPACK se débrouuille pour le chercher dans nodes_modules
+Webpack est assez malin pour n'ajouter que les modules qui sont utilisés
+var React = require('REACT) --> Ancienne façon de faire en ES5
+
+Pour react:
+https://reactjs.org/docs/react-api.html
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+3. Use
+const template = React.createElement("p", {}, "testing 123");
+ReactDOM.render(template, document.getElementById("app"));
+
+################AJOUT DE REACT A WEBPACL####################
+
+
+
+
+
+
