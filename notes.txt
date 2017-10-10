@@ -1108,7 +1108,27 @@ import ReactDOM from 'react-dom'
 const template = React.createElement("p", {}, "testing 123");
 ReactDOM.render(template, document.getElementById("app"));
 
-################AJOUT DE REACT A WEBPACL####################
+################AJOUT du processing jsx et es6 A WEBPACK####################
+On doit utiliser les "loaders": permettent de processer les fichiers
+yarn add babel-core@6.25.0 babel-loader@7.1.1
+
+Ensuite:
+Ajouter dans webpack.config.js:
+ module: {
+    rules: [
+      {
+        loader: "babel-loader",
+        test: /\.js$/, //babel-loader processe uniquement ces fichiers
+        exclude: /nodes-modules/ //On exclut ce répertoire
+      }
+    ]
+  }
+  
+ ET créer un fichier .babelrc:
+{
+  "presets": ["env", "react"]
+}
+
 
 
 
