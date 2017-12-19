@@ -1140,8 +1140,44 @@ Importer la classe:
 import AddOption from "./components/AddOption"
 
 
+################Source Maps with Webpack##################
+Les fichiers sont minifiés dans un seul javascript.
+Cependant c'est embetant en cas d'erreur car on se retrouve dans cet immense fichier qui n'est pas le fichier source ES6.
+Solution: Webpack devtool - cheap-module-eval-source-map
+https://webpack.js.org/configuration/devtool/#devtool
 
 
+################Webpack dev server##################
+Plus rapide que live-server. Recommandé.
+yarn add webpack-dev-server@2.5.1
+
+Dans webpack.config.js:
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
+  }
+Dans package.json
+ "scripts": {
+    "dev-server" : "webpack-dev-server"
+  },
+
+Puis en ligne de commande:
+yarn run dev-server
+
+L'avantage est qu'il reload le serveur en fonction des sources et non du fichier compilé. 
+Et même si on supprime bundle.js, il arrive à servir l'application. Il a donc un cache en place.
+
+################Builder pour la production##################
+Dans package.json:
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+Puis lancer la commande "yarn run build"
+
+  
+  
+  
 
 
 
