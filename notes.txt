@@ -1129,6 +1129,20 @@ Ajouter dans webpack.config.js:
   "presets": ["env", "react"]
 }
 
+################One component per File##################
+Un composant par fichier
+Créer un fichier src/components/AddOption.js
+
+Exporter la classe:
+export default class AddOption extends React.Component 
+
+Importer la classe:
+import AddOption from "./components/AddOption"
+
+
+
+
+
 
 
 
