@@ -1275,6 +1275,29 @@ const Options = props => (
   </div>
 );
 
+########################ADDING STYLE###############################
+Setting UP webpack with SCSS:
+Créer un fichier src/styles/styles.scss
+yarn add style-loader@0.18.2 css-loader@0.28.4 sass-loader@6.0.6 node-sass@4.5.3
+
+
+dans webpack.config.js
+module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
+  },
+
+  Puis dans app.js:
+  import "./styles/styles.css";
+
+  
+  
+  
+  
 
 
 
