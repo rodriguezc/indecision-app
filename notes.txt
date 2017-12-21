@@ -1294,11 +1294,31 @@ module: {
   Puis dans app.js:
   import "./styles/styles.css";
 
-  
-  
-  
+########################ARCHITECTURE AND HEADER STYLES#########################################################
+On va faire un fichier de style par composant plutôt que d'avoir un gros fichier css avec tout et des selectors
+Créer un fichier styles/base/_base.css
+--> Les fichiers partiels doivent commencer par "_"
+Ce fichier contient les configurations vraiment de base comme le font-family
+
+Dans le fichier styles/styles.css ajouter:
+@import "./base/_base.scss";
+
+Unité recommandée pour le dimenssionnement: rem (au lieu de px)
+
+Créer aussi un fichier styles/components/_<mycomponent>.scss et
+Dans le fichier styles/styles.css ajouter:
+@import "./components/_<mycomponent>.scss";
   
 
+  IL EST CONSEILLE D'ORGANISER SON CSS SELON LA METHODOLOGIE "BEM"
+  http://getbem.com/introduction/
+  Ca permet:
+  - La réutilisabilité
+  - La modularité (on évite les problèmes de cascading)
+  - La compréhension du code
+  ... réutiliser les composants et d'éviter des erreurs ainsi que des problèmes de lenteur.
+  
+  
 
 
 
