@@ -10,7 +10,7 @@ module.exports = {
       {
         loader: "babel-loader",
         test: /\.js$/, //babel-loader processe uniquement ces fichiers
-        exclude: /nodes-modules/ //On exclut ce répertoire
+        exclude: /node_modules/ //On exclut ce répertoire
       }
     ]
   },

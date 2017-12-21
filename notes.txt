@@ -1222,8 +1222,58 @@ class NewSyntax {
 }
 Il faut donc utiliser cette syntaxe pour toutes les méthodes qu'on déclare sauf "render", "componentdid*"
 
+#####################USING A THIRD PARTY COMPONENT############################
 
- 
+Passing a child component:
+Exemple: on fait un composant layout mais on ne connait pas à l'avance le contenu.
+ReactDOM.render(
+  <Layout>
+    <p>This is inline</p>
+  </Layout>,
+  document.getElementById("app")
+);
+
+onst Layout = props => {
+  return (
+    <div>
+      <p>Header</p>
+      {props.children}
+      <p>Footer</p>
+    </div>
+  );
+};
+
+React-modal:
+yarn add react-modal@2.2.2
+
+import Modal from "react-modal";
+const OptionModal = props => (
+  <Modal
+    isOpen={!!props.selectedOption}
+    contentLabel="Selected Option"
+    onRequestClose={props.handleClearSelectedOption}
+  >
+    <h3>Selected option</h3>
+    {props.selectedOption && <p>{props.selectedOption}</p>}
+    <button onClick={props.handleClearSelectedOption}>Okay</button>
+  </Modal>
+);
+
+Simplicifation de la syntaxe du JSX:
+const Options = props => {
+  return (
+    <div>
+	...
+    </div>
+  );
+};
+
+Sans le return:
+const Options = props => (
+  <div>
+  ...
+  </div>
+);
 
 
 
