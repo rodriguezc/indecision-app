@@ -1176,8 +1176,55 @@ Dans package.json:
 Puis lancer la commande "yarn run build"
 
   
+################ES6 class properties##################
+Pouvoir ajouter des properties aux classes au lieu d'ajouter que des méthodes
+Il faut un plugin babbel pour cela.
+Ca évite de déclarer tout dans le constructeur.
+http://babeljs.io/docs/plugins/transform-class-properties/
+.babelrc:
+{
+  "plugins": ["transform-class-properties"]
+}
+
+
+Va permettre de déclarer des properties et des arrow functions dont le this sera bindé à la classe
+yarn add babel-plugin-transform-class-properties@6.24.1
+
+Exemple ancienne syntaxe:
+class OldSyntax {
+  constructor() {
+    this.name = "Mike";
+  }
+
+  getGreeting() {
+    return `Hi. My name is ${this.name}`;
+  }
+}
+
+const oldSyntax = new OldSyntax();
+const getGreeting = oldSyntax.getGreeting;  
+console.log(getGreeting());  ---> PLANTE
+
+ON DOIT DONC FAIRE:
+  constructor() {
+    this.name = "Mike";
+    this.getGreeting = this.getGreeting.bind(this);
+  }
   
-  
+MAIS C EST TRES VERBEUX. Nouvelle solution:
+Arrow function on class properties:
+
+class NewSyntax {
+  name = "Jen";
+  getGreeting = () => {
+    return `Hi. My name is ${this.name}`;
+  };
+}
+Il faut donc utiliser cette syntaxe pour toutes les méthodes qu'on déclare sauf "render", "componentdid*"
+
+
+ 
+
 
 
 
