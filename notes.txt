@@ -1319,6 +1319,21 @@ Dans le fichier styles/styles.css ajouter:
   ... réutiliser les composants et d'éviter des erreurs ainsi que des problèmes de lenteur.
   
   
+####RESET THAT SHIT###################
+Faire un reset CSS. On va utiliser une librairie existente: normalize CSS
+yarn add normalize.css@7.0.0
+Dans app.js avant les autres import css:
+import "normalize.css/normalize.css";
+Dans webpack.config.js ajotuer le processing ces css (?):
+ module: {
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
+  },
+
 
 
 
