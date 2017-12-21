@@ -1,11 +1,10 @@
 .header {
-  background-color: $off-black;
+  background: $off-black;
   color: white;
   margin-bottom: $xl-size;
   padding: $m-size 0;
 }
 
-//BEM block element modifer
 .header__title {
   font-size: $l-size;
   margin: 0;

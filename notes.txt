@@ -1318,6 +1318,34 @@ Dans le fichier styles/styles.css ajouter:
   - La compréhension du code
   ... réutiliser les composants et d'éviter des erreurs ainsi que des problèmes de lenteur.
   
+Exemple:
+On a le style standard d'un bouton:
+.button {
+  background: $purple;
+  border: none;
+  border-bottom: .3rem solid darken($purple, 10%);
+  color: white;
+  font-weight: 500;
+  padding: $s-size;
+}
+
+On veut créer une variante:
+.button--link {
+  background: none;
+  border: none;
+  color: $off-white;
+  padding: 0;
+}
+
+Ensuite on le déclare avec les deux styles:
+<button className="button button--link"  onClick={(e) => {props.handleDeleteOption(props.optionText);}}>
+  remove
+</button>
+
+
+
+  
+  
   
 ####RESET THAT SHIT###################
 Faire un reset CSS. On va utiliser une librairie existente: normalize CSS
@@ -1340,7 +1368,6 @@ Pour le scss, on peut faire des variables.
 Pour cela il faut créer un nouveau fichier base/_settings.scss où l'on va y définir les variables
 Ajouter ce settings.css dans le fichier styles/styles.scss:
 @import "./base/_settings.scss";
-
 
 
 
