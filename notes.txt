@@ -1335,6 +1335,14 @@ Dans webpack.config.js ajotuer le processing ces css (?):
   },
 
 
+####THEMING AND VARIABLES###################
+Pour le scss, on peut faire des variables.
+Pour cela il faut créer un nouveau fichier base/_settings.scss où l'on va y définir les variables
+Ajouter ce settings.css dans le fichier styles/styles.scss:
+@import "./base/_settings.scss";
+
+
+
 
 
 
